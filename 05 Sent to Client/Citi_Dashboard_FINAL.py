@@ -99,7 +99,7 @@ if page == "Intro Page":
         intro_image = Image.open(BytesIO(response.content))
     
         # Display the image in Streamlit
-        st.image(intro_image, width="auto")
+        st.image(intro_image)
     else:
         st.error("❌ Failed to load intro image. Please check the GitHub link.")
     
@@ -384,7 +384,7 @@ else:
         outro_image = Image.open(BytesIO(response.content))
     
         # Display the image in Streamlit
-        st.image(outro_image, width="auto")
+        st.image(outro_image)
     else:
         st.error("❌ Failed to load outro image. Please check the GitHub link.")
 
