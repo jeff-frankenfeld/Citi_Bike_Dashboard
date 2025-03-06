@@ -19,7 +19,7 @@ This project analyzes **New York City's Citi Bike usage patterns** to **identify
 ### **Analytical Insights**
 - **Seasonal Trends:** Warmer months see increased ridership, while winter months show a decline.
 - **Most Popular Stations:** `W 21 St & 6 Ave` is the most frequently used start station year-round.
-- **🗺Commuter vs. Recreational Usage:**  
+- **Commuter vs. Recreational Usage:**  
   - **Work commuters** dominate ridership in **Chelsea & Midtown Manhattan**.
   - **Casual riders & tourists** use Citi Bikes heavily in **Central Park & Roosevelt Island**.
 - **Hourly Usage Trends:**  
