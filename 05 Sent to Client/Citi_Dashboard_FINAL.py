@@ -88,20 +88,20 @@ if page == "Intro Page":
     Use the **dropdown menu on the left** to navigate through the different insights.
     """)
 
-# URL of the image stored in GitHub (update with your actual username/repo)
-image_url = "https://raw.githubusercontent.com/jeff-frankenfeld/Citi_Bike_Dashboard/main/05%20Sent%20to%20Client/Citi_Bikes.jpg"
-
-# Download the image from GitHub
-response = requests.get(image_url)
-
-if response.status_code == 200:
-    # Open the image
-    intro_image = Image.open(BytesIO(response.content))
-
-    # Display the image in Streamlit
-    st.image(intro_image, width="auto")
-else:
-    st.error("❌ Failed to load intro image. Please check the GitHub link.")
+    # URL of the image stored in GitHub (update with your actual username/repo)
+    image_url = "https://raw.githubusercontent.com/jeff-frankenfeld/Citi_Bike_Dashboard/main/05%20Sent%20to%20Client/Citi_Bikes.jpg"
+    
+    # Download the image from GitHub
+    response = requests.get(image_url)
+    
+    if response.status_code == 200:
+        # Open the image
+        intro_image = Image.open(BytesIO(response.content))
+    
+        # Display the image in Streamlit
+        st.image(intro_image, width="auto")
+    else:
+        st.error("❌ Failed to load intro image. Please check the GitHub link.")
     
 ### Create the dual axis line chart page ###
 
