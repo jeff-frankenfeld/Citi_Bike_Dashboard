@@ -56,12 +56,12 @@ def load_data():
         st.error("❌ Failed to load dataset. Please check the GitHub link.")
         return None  # Return None if the file couldn't be loaded
 
-# ✅ Move `df = load_data()` OUTSIDE the function (not inside `else:`)
+# Load the dataset
 df = load_data()
 
 if df is not None:
     df = df.reset_index()
-    st.success("✅ Dataset successfully loaded!")
+    # Removed the success message
 else:
     st.error("❌ Dataset could not be loaded.")
 
@@ -88,20 +88,20 @@ if page == "Intro Page":
     Use the **dropdown menu on the left** to navigate through the different insights.
     """)
 
-    # URL of the image stored in GitHub (update with your actual username/repo)
-    image_url = "https://raw.githubusercontent.com/jeff-frankenfeld/Citi_Bike_Dashboard/main/05%20Sent%20to%20Client/Citi_Bikes.jpg"
-    
-    # Download the image from GitHub
-    response = requests.get(image_url)
-    
-    if response.status_code == 200:
-        # Open the image
-        intro_image = Image.open(BytesIO(response.content))
-    
-        # Display the image in Streamlit
-        st.image(intro_image, use_column_width=True)
-    else:
-        st.error("❌ Failed to load intro image. Please check the GitHub link.")
+# URL of the image stored in GitHub (update with your actual username/repo)
+image_url = "https://raw.githubusercontent.com/jeff-frankenfeld/Citi_Bike_Dashboard/main/05%20Sent%20to%20Client/Citi_Bikes.jpg"
+
+# Download the image from GitHub
+response = requests.get(image_url)
+
+if response.status_code == 200:
+    # Open the image
+    intro_image = Image.open(BytesIO(response.content))
+
+    # Display the image in Streamlit
+    st.image(intro_image, width="auto")
+else:
+    st.error("❌ Failed to load intro image. Please check the GitHub link.")
     
 ### Create the dual axis line chart page ###
 
@@ -239,7 +239,7 @@ elif page == 'Interactive Map with Aggregated Bike Trips':
                 html_data = html_file.read().decode("utf-8")  # Read and decode the file content
     
         # Display the map in Streamlit
-        st.subheader("🗺️ Aggregated Bike Trips in New York City")
+        st.subheader("Aggregated Bike Trips in New York City")
         st.components.v1.html(html_data, height=1000)
     else:
         st.error("❌ Failed to load HTML map. Please check the GitHub link.")
@@ -384,7 +384,7 @@ else:
         outro_image = Image.open(BytesIO(response.content))
     
         # Display the image in Streamlit
-        st.image(outro_image, use_column_width=True)
+        st.image(outro_image, width="auto")
     else:
         st.error("❌ Failed to load outro image. Please check the GitHub link.")
 
