@@ -35,34 +35,35 @@ page = st.sidebar.selectbox('Select an aspect of the analysis',
 
 @st.cache_data
 def load_data():
-        # URL of the ZIP file stored in GitHub (update with your actual username/repo)
-        zip_url = "https://github.com/jeff-frankenfeld/Citi_Bike_Dashboard/raw/main/05%20Sent%20to%20Client/reduced_data_to_plot_7.zip"
+    # URL of the ZIP file stored in GitHub (update with your actual username/repo)
+    zip_url = "https://github.com/jeff-frankenfeld/Citi_Bike_Dashboard/raw/main/05%20Sent%20to%20Client/reduced_data_to_plot_7.zip"
     
-        # Download the ZIP file from GitHub
-        response = requests.get(zip_url)
+    # Download the ZIP file from GitHub
+    response = requests.get(zip_url)
         
-        if response.status_code == 200:
-            # Open the ZIP file
-            with zipfile.ZipFile(BytesIO(response.content), 'r') as zip_ref:
-                # Extract the CSV file from the ZIP
-                with zip_ref.open("reduced_data_to_plot_7.csv") as csv_file:
-                    df = pd.read_csv(csv_file, index_col=0)
-    
-                    # Reduce memory usage
-                    df[['bike_rides_daily', 'avgTemp']] = df[['bike_rides_daily', 'avgTemp']].astype('float32')
-    
-                    return df
-        else:
-            st.error("❌ Failed to load dataset. Please check the GitHub link.")
-            return None  # Return None if the file couldn't be loaded
-    
-    df = load_data()
-    
-    if df is not None:
-        df = df.reset_index()
-        st.success("✅ Dataset successfully loaded!")
+    if response.status_code == 200:
+        # Open the ZIP file
+        with zipfile.ZipFile(BytesIO(response.content), 'r') as zip_ref:
+            # Extract the CSV file from the ZIP
+            with zip_ref.open("reduced_data_to_plot_7.csv") as csv_file:
+                df = pd.read_csv(csv_file, index_col=0)
+
+                # Reduce memory usage
+                df[['bike_rides_daily', 'avgTemp']] = df[['bike_rides_daily', 'avgTemp']].astype('float32')
+
+                return df
     else:
-        st.error("❌ Dataset could not be loaded.")
+        st.error("❌ Failed to load dataset. Please check the GitHub link.")
+        return None  # Return None if the file couldn't be loaded
+
+# ✅ Move `df = load_data()` OUTSIDE the function (not inside `else:`)
+df = load_data()
+
+if df is not None:
+    df = df.reset_index()
+    st.success("✅ Dataset successfully loaded!")
+else:
+    st.error("❌ Dataset could not be loaded.")
 
 ######################################### DEFINE THE PAGES #####################################################################
 
