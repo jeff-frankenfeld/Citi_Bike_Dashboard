@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+requests
+zipfile36
+plotly
+matplotlib
+Pillow
+numerize
+streamlit_keplergl
+keplergl
