@@ -35,15 +35,15 @@ This project analyzes **New York City's Citi Bike usage patterns** to **identify
 ---
 
 ## **Project Structure**
-```bash
 /Citi_Bike_Dashboard
 │── 01 Project Management  # Documentation & project plan
 │── 02 Data
 │   ├── Prepared Data  # Cleaned dataset for analysis
 │── 03 Scripts
-│   ├── Citi_Dashboard.py  # Main Streamlit dashboard script
-│   ├── Citi_Dashboard_pt2.py  # Additional dashboard features
+│   ├── Citi_Dashboard.py  # First draft Streamlit dashboard script
+│   ├── Citi_Dashboard_pt2.py  # Final draft dashboard
 │   ├── Various jupyterlab notebook scripts for data analysis  # Data preparation & transformation
 │── 04 Analysis
-│   ├── Visualizations  # Stored plots & reports
+│   ├── Visualizations  # Stored plots
+│   ├── Reports  # Stored reports
 │── README.md  # Project overview & details
